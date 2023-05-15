@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- import bootstrap 5-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    
+    <!-- import box icon-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <title>MOVIES APP</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg " style="background-color: #1e588f; color: black;">
+        <div class="container-fluid">
+          <a class="navbar-brand" style="color: black;" href="index"><i class='bx bx-movie-play'></i>Movies TOC</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="color:black"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" style="color:black"; href="add"><i class='bx bx-add-to-queue' style="font-size: 20px"></i>Add movie</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disable"><i class='bx bx-list-check' style="font-size:20px"></i>Get Favorites</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div class="container style="overflow-y: scroll; padding-bottom: 8%;">
+        <br>
+        <table class="table table-bordered table-striped text-center mt-3">
+            <thead>
+                <tr class="bg-primary text-white">
+                    <th scope="col">ID</th>
+                    <th scope="col">MOVIE</th>
+                    <th scope="col">YEAR</th>
+                    <th scope="col">DIRECTOR</th>
+                    <th scope="col">DURATION</th>
+                    <th scope="col">GENRE</th>
+                    <th scope="col">LANGUAGE</th>
+                    <th scope="col">DELETE FROM FAVORITES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% results.forEach((favorites)=> { %>
+                    <tr>
+                        <td><%= favorites.id %></td>
+                        <td><%= favorites.name %></td>
+                        <td><%= favorites.year %></td>
+                        <td><%= favorites.director %></td>
+                        <td><%= favorites.duration %></td>
+                        <td><%= favorites.genre %></td>
+                        <td><%= favorites.language %></td>
+                        <td><a href="/deleteFavorite/<%= favorites.id %>" class="btn btn-outline-danger">Delete</a></td>                        
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+<footer style="position: fixed; margin:0; bottom: 0; width: 100%; height:8%; background-color: #1e588f; color: white; text-align: center;">
+    <div>Developed by Juan David Saraza</div>
+    <div>2023</div>
+</footer>
+</html>
